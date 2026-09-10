@@ -242,3 +242,63 @@ Example workflow:
        │   SYSTEM    │       │   SYSTEM    │       │   SYSTEM    │
        └─────────────┘       └─────────────┘       └─────────────┘
 
+## Project Structure.
+Ofeast
+│
+├── backend
+│   │
+│   ├── prisma
+│   │   ├── migrations
+│   │   └── schema.prisma
+│   │
+│   └── src
+│       │
+│       ├── lib
+│       │   ├── auth.js
+│       │   ├── mailer.js
+│       │   ├── payfast.js
+│       │   └── prisma.js
+│       │
+│       ├── middleware
+│       │   └── authMiddleware.js
+│       │
+│       └── routes
+│           ├── applications.js
+│           ├── auth.js
+│           ├── contact.js
+│           ├── drivers.js
+│           ├── favorites.js
+│           ├── menu.js
+│           ├── orders.js
+│           ├── shops.js
+│           ├── superadmin.js
+│           └── webhooks.js
+│
+└── frontend
+    │
+    └── src
+        │
+        ├── api
+        │   └── client.js
+        │
+        ├── components
+        │   ├── ApplicationLayout.jsx
+        │   ├── AuthLayout.jsx
+        │   ├── BottomNav.jsx
+        │   ├── Footer.jsx
+        │   ├── LiveMap.jsx
+        │   ├── LocationBar.jsx
+        │   ├── NavBar.jsx
+        │   └── PasswordField.jsx
+        │
+        ├── context
+        │   ├── AuthContext.jsx
+        │   ├── CartContext.jsx
+        │   ├── FavoritesContext.jsx
+        │   └── LocationContext.jsx
+        │
+        └── pages
+            ├── Customer Pages
+            ├── Shop Pages
+            ├── Admin Pages
+            └── Authentication Pages
