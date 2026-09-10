@@ -202,7 +202,12 @@ Ready
     ↓
 Completed / Collected / Delivered
 
-System Architecture
+### System Architecture
+Example workflow:
+
+```text
+
+
                          ┌──────────────────────┐
                          │      CUSTOMER        │
                          │    React / Vite      │
@@ -236,3 +241,4 @@ System Architecture
        │    SHOP     │       │    ADMIN    │       │   DRIVER    │
        │   SYSTEM    │       │   SYSTEM    │       │   SYSTEM    │
        └─────────────┘       └─────────────┘       └─────────────┘
+
