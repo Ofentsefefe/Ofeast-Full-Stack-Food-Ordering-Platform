@@ -1,6 +1,4 @@
-# Ofeast-Full-Stack-Food-Ordering-Platform
-Ofeast is a modern food ordering and delivery platform designed to connect customers with local food vendors. The platform allows users to browse menus, place orders, choose pickup or delivery, manage their profiles, and track their orders. Built with a focus on creating a convenient digital ordering experience for the surrounding community
-# 🍽️ Ofeast
+# 🍽️ Ofeast — Full-Stack Food Ordering & Delivery Platform
 
 <p align="center">
   <img src="assets/logo/ofeast-logo.png" alt="Ofeast Logo" width="180">
@@ -11,8 +9,8 @@ Ofeast is a modern food ordering and delivery platform designed to connect custo
 </h3>
 
 <p align="center">
-  A modern food ordering and delivery platform connecting customers
-  with local food businesses.
+  A full-stack food ordering and delivery platform connecting customers
+  with local food businesses through a modern digital ordering experience.
 </p>
 
 <p align="center">
@@ -24,281 +22,226 @@ Ofeast is a modern food ordering and delivery platform designed to connect custo
   •
   <a href="#system-architecture">Architecture</a>
   •
+  <a href="#project-structure">Project Structure</a>
+  •
   <a href="#roadmap">Roadmap</a>
 </p>
 
 ---
 
-## 📖 Overview
+# 📸 Application Preview
 
-**Ofeast** is a full-stack food ordering and delivery platform designed to make ordering from local food businesses faster, easier and more convenient.
+Ofeast provides a modern digital ordering experience that connects
+customers with local food businesses.
 
-The platform allows customers to discover food businesses, browse menus, add items to a cart, place orders, make online payments and monitor the progress of their orders.
+The platform covers the complete ordering journey — from discovering
+food and managing a cart to payment, order preparation, and delivery.
 
-Ofeast is being designed with a multi-role architecture that supports:
+---
+
+## 🏠 Customer Experience
+
+### Home & Food Discovery
+
+<p align="center">
+  <img
+    src="assets/screenshots/home.png"
+    alt="Ofeast Customer Home"
+    width="850"
+  >
+</p>
+
+The Ofeast home experience allows customers to discover available
+food businesses and access the main ordering features of the platform.
+
+---
+
+### 🍔 Food Menu
+
+<p align="center">
+  <img
+    src="assets/screenshots/menu.png"
+    alt="Ofeast Food Menu"
+    width="850"
+  >
+</p>
+
+Customers can browse available food items, explore menus, and select
+products they want to order.
+
+---
+
+### 🛒 Shopping Cart
+
+<p align="center">
+  <img
+    src="assets/screenshots/cart.png"
+    alt="Ofeast Shopping Cart"
+    width="850"
+  >
+</p>
+
+The shopping cart allows customers to review selected items, update
+quantities, remove products, and prepare their order for checkout.
+
+---
+
+### 💳 Checkout & Payment
+
+<p align="center">
+  <img
+    src="assets/screenshots/checkout.png"
+    alt="Ofeast Checkout and Payment"
+    width="850"
+  >
+</p>
+
+Ofeast integrates online payment functionality through PayFast,
+allowing customers to complete their orders digitally.
+
+---
+
+### 📦 Order Tracking
+
+<p align="center">
+  <img
+    src="assets/screenshots/order-tracking.png"
+    alt="Ofeast Order Tracking"
+    width="850"
+  >
+</p>
+
+Customers can monitor the progress of their orders throughout the
+preparation and fulfillment process.
+
+---
+
+# 🏪 Food Business Experience
+
+### Shop Dashboard
+
+<p align="center">
+  <img
+    src="assets/screenshots/shop-dashboard.png"
+    alt="Ofeast Food Business Dashboard"
+    width="850"
+  >
+</p>
+
+Food businesses have dedicated functionality for managing their
+incoming orders and updating order progress.
+
+---
+
+# 👨‍💼 Administration
+
+### Admin Dashboard
+
+<p align="center">
+  <img
+    src="assets/screenshots/admin-dashboard.png"
+    alt="Ofeast Admin Dashboard"
+    width="850"
+  >
+</p>
+
+The administrative system is designed to provide platform-level
+management of users, businesses, drivers, orders, and applications.
+
+---
+
+# 📱 Mobile Experience
+
+<p align="center">
+  <img
+    src="assets/screenshots/mobile.png"
+    alt="Ofeast Mobile Experience"
+    width="400"
+  >
+</p>
+
+Ofeast is designed with responsive experiences in mind, allowing the
+platform to adapt to different screen sizes and devices.
+
+---
+
+# 📖 Overview
+
+**Ofeast** is a full-stack food ordering and delivery platform designed
+to make ordering from local food businesses faster, easier, and more
+convenient.
+
+The platform provides a centralized digital experience where customers
+can discover food businesses, browse menus, manage their carts, place
+orders, make online payments, and monitor order progress.
+
+Ofeast follows a multi-role architecture supporting:
 
 - 👤 Customers
-- 🏪 Food businesses
+- 🏪 Food Businesses
 - 👨‍💼 Administrators
-- 🚚 Delivery drivers
+- 🚚 Delivery Drivers
 
-The platform initially focuses on serving students and customers around educational institutions and local communities, with a long-term vision of expanding into broader communities and township markets across South Africa.
+The platform initially focuses on students and customers around
+educational institutions and surrounding communities, with a long-term
+vision of expanding into broader communities and township markets
+across South Africa.
 
 ---
 
 # 🎯 Problem Statement
 
-Many students and local customers still rely on traditional ordering methods when purchasing food.
+Many customers still rely on traditional methods when ordering food
+from local businesses.
 
 Customers may have to:
 
-- Wait in long queues
-- Visit food businesses physically
+- Wait in physical queues
+- Visit food businesses to place orders
 - Communicate through multiple messaging platforms
 - Wait without knowing the status of an order
-- Use cash or different payment methods
-- Search for nearby food businesses manually
+- Use different payment methods
+- Search manually for nearby food businesses
 
 At the same time, smaller food businesses may rely on:
 
-- Manual order management
 - WhatsApp messages
 - Paper-based processes
 - Verbal communication
-- Limited order tracking
 - Manual payment verification
+- Limited order tracking
+- Manual coordination between customers and staff
 
-These processes can become difficult to manage as the number of customers and orders increases.
+These processes can become increasingly difficult to manage as
+customer demand and order volumes grow.
 
 ---
 
 # 💡 The Ofeast Solution
 
-Ofeast provides a centralized digital platform where customers and food businesses can interact through one system.
+Ofeast brings customers and food businesses together through a
+centralized digital platform.
 
-### Customers
+Instead of relying on separate communication and ordering channels,
+customers can manage the ordering process through one application.
 
-Customers can:
-
-1. Discover food businesses
-2. Browse menus
-3. Select food items
-4. Add items to their cart
-5. Place orders
-6. Make online payments
-7. Track order progress
-8. Choose between pickup and delivery
-9. View previous orders
-10. Manage their profile and preferences
-
-### Food Businesses
-
-Food businesses can receive and manage customer orders through dedicated business functionality.
-
-Businesses can:
-
-- View incoming orders
-- Manage order statuses
-- Manage menu items
-- Monitor orders belonging to their business
-- Move orders through the preparation workflow
-
-### Delivery
-
-Ofeast is being developed to support a delivery workflow where drivers can receive delivery assignments and help customers receive their orders.
-
----
-
-# ✨ Features
-
-## 👤 Customer Features
-
-### Authentication
-
-- User registration
-- User login
-- Authentication system
-- Protected application routes
-- Password handling
-- Authentication middleware
-- User session management
-
-### Food Discovery
-
-- Browse available food businesses
-- View individual shop information
-- Browse food menus
-- Search for food
-- View available menu items
-- Save favourite items/businesses
-
-### Shopping Cart
-
-- Add food items to cart
-- Remove food items
-- Update quantities
-- View cart summary
-- Manage cart state
-
-### Ordering
-
-- Place food orders
-- View order details
-- View order history
-- Monitor order status
-- Order preparation workflow
-- Pickup and delivery support
-
-### Payments
-
-Ofeast integrates online payment functionality through **PayFast**.
-
-The backend includes payment processing and webhook functionality for handling payment-related events.
-
-### Location
-
-The platform includes location-related functionality designed to support:
-
-- Customer location
-- Location-aware experiences
-- Delivery functionality
-- Map-based features
-- Future live delivery tracking
-
-### Favourites
-
-Customers can save food businesses or menu items for easier access in the future.
-
-### Profile
-
-Customers can manage their account and access their personal application features through their profile.
-
----
-
-# 🏪 Food Business Features
-
-Ofeast is designed to support multiple independent food businesses on the same platform.
-
-Each business can have its own:
-
-- Business profile
-- Menu
-- Menu items
-- Orders
-- Order management workflow
-
-### Business Order Management
-
-Food businesses can manage their incoming orders and update order progress.
-
-Example workflow:
+### Customer Ordering Journey
 
 ```text
-New Order
-    ↓
-Preparing
-    ↓
-Ready
-    ↓
-Completed / Collected / Delivered
-
-### System Architecture
-Example workflow:
-
-```text
-
-
-                         ┌──────────────────────┐
-                         │      CUSTOMER        │
-                         │    React / Vite      │
-                         └──────────┬───────────┘
-                                    │
-                                    │ HTTP / API
-                                    ▼
-                         ┌──────────────────────┐
-                         │     OFEAST API       │
-                         │   Node.js / Express  │
-                         └──────────┬───────────┘
-                                    │
-              ┌─────────────────────┼─────────────────────┐
-              │                     │                     │
-              ▼                     ▼                     ▼
-      ┌──────────────┐      ┌──────────────┐      ┌──────────────┐
-      │  PostgreSQL  │      │   PayFast    │      │  Socket.io   │
-      │    Prisma    │      │   Payments   │      │  Real-Time   │
-      └──────────────┘      └──────────────┘      └──────────────┘
-                                    │
-                                    ▼
-                           ┌─────────────────┐
-                           │     WEBHOOKS    │
-                           │ Payment Events  │
-                           └─────────────────┘
-
-              ┌─────────────────────┼─────────────────────┐
-              │                     │                     │
-              ▼                     ▼                     ▼
-       ┌─────────────┐       ┌─────────────┐       ┌─────────────┐
-       │    SHOP     │       │    ADMIN    │       │   DRIVER    │
-       │   SYSTEM    │       │   SYSTEM    │       │   SYSTEM    │
-       └─────────────┘       └─────────────┘       └─────────────┘
-
-## Project Structure.
-Ofeast
-│
-├── backend
-│   │
-│   ├── prisma
-│   │   ├── migrations
-│   │   └── schema.prisma
-│   │
-│   └── src
-│       │
-│       ├── lib
-│       │   ├── auth.js
-│       │   ├── mailer.js
-│       │   ├── payfast.js
-│       │   └── prisma.js
-│       │
-│       ├── middleware
-│       │   └── authMiddleware.js
-│       │
-│       └── routes
-│           ├── applications.js
-│           ├── auth.js
-│           ├── contact.js
-│           ├── drivers.js
-│           ├── favorites.js
-│           ├── menu.js
-│           ├── orders.js
-│           ├── shops.js
-│           ├── superadmin.js
-│           └── webhooks.js
-│
-└── frontend
-    │
-    └── src
-        │
-        ├── api
-        │   └── client.js
-        │
-        ├── components
-        │   ├── ApplicationLayout.jsx
-        │   ├── AuthLayout.jsx
-        │   ├── BottomNav.jsx
-        │   ├── Footer.jsx
-        │   ├── LiveMap.jsx
-        │   ├── LocationBar.jsx
-        │   ├── NavBar.jsx
-        │   └── PasswordField.jsx
-        │
-        ├── context
-        │   ├── AuthContext.jsx
-        │   ├── CartContext.jsx
-        │   ├── FavoritesContext.jsx
-        │   └── LocationContext.jsx
-        │
-        └── pages
-            ├── Customer Pages
-            ├── Shop Pages
-            ├── Admin Pages
-            └── Authentication Pages
+Discover
+   ↓
+Browse Food Business
+   ↓
+Browse Menu
+   ↓
+Add to Cart
+   ↓
+Checkout
+   ↓
+Payment
+   ↓
+Order Preparation
+   ↓
+Pickup / Delivery
+   ↓
+Order Completed
