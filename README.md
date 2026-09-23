@@ -274,6 +274,7 @@ Order Completed
 | 🚚 Delivery Coordination | Driver assignment and delivery workflow |
 | 👨‍💼 Admin Dashboard | Platform-wide management and oversight |
 | 📱 Responsive Design | Optimized for desktop, tablet, and mobile |
+| 📧 Email Notifications | Order confirmations and updates via SMTP |
 | 🔔 Notifications | Order and status notifications for all roles |
 
 ---
@@ -296,16 +297,21 @@ Order Completed
 |---|---|
 | Node.js | Server runtime |
 | Express.js | REST API framework |
+| Prisma | Type-safe ORM for database access |
+| PostgreSQL | Relational database |
+| Neon | Serverless PostgreSQL hosting |
 | JWT | Authentication and authorization |
 | PayFast | Payment gateway integration |
 | Multer | File and image uploads |
+| Nodemailer (SMTP) | Transactional email delivery |
 
 ### Database & Storage
 
 | Technology | Purpose |
 |---|---|
-| MongoDB | NoSQL database |
-| Mongoose | ODM for MongoDB |
+| PostgreSQL | Relational database |
+| Prisma | ORM, schema, and migrations |
+| Neon | Cloud-hosted PostgreSQL database |
 | Cloudinary | Image storage and optimization |
 
 ### DevOps & Tooling
@@ -316,6 +322,7 @@ Order Completed
 | Vercel | Frontend deployment |
 | Render / Railway | Backend deployment |
 | Postman | API testing |
+| Prisma Studio | Database GUI and inspection |
 
 ---
 
@@ -354,14 +361,18 @@ between the frontend, backend, and database layers.
 │   │  Middleware  │   │  Integration │   │  Uploads     │   │
 │   └──────────────┘   └──────────────┘   └──────────────┘   │
 │                                                             │
-└─────────────────────────────┬───────────────────────────────┘
-                              │
-                              ▼
+│   ┌──────────────┐   ┌──────────────────────────────────┐   │
+│   │  Prisma ORM  │   │  Nodemailer (SMTP Email Service) │   │
+│   └──────┬───────┘   └──────────────────────────────────┘   │
+│          │                                                  │
+└──────────┼──────────────────────────────────────────────────┘
+           │
+           ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                        DATA LAYER                           │
 │                                                             │
 │   ┌─────────────────────────────────────────────────────┐   │
-│   │                   MongoDB                            │   │
+│   │           Neon (Serverless PostgreSQL)              │   │
 │   ├──────────┬──────────┬──────────┬───────────────────┤   │
 │   │  Users   │  Orders  │  Menus   │  Businesses       │   │
 │   │  Drivers │  Carts   │  Items   │  Payments         │   │
@@ -382,9 +393,12 @@ Customer / Business / Admin / Driver
                 ▼
         Express.js Backend
                 │
-        ┌───────┼───────┐
-        ▼       ▼       ▼
-    MongoDB  PayFast  Cloudinary
+        ┌───────┼───────────┬────────────┐
+        ▼       ▼           ▼            ▼
+    Prisma   PayFast   Cloudinary   SMTP Email
+      │
+      ▼
+    Neon (PostgreSQL)
 ```
 
 ---
@@ -483,10 +497,16 @@ ofeast/                                 # Project root
 │
 ├── 📁 backend/                         # Node.js + Express application
 │   │
+│   ├── prisma/                         # Prisma ORM
+│   │   ├── schema.prisma               # Database schema & models
+│   │   ├── migrations/                 # Database migration history
+│   │   └── seed.js                     # Optional seed data
+│   │
 │   ├── config/                         # Configuration & connections
-│   │   ├── db.js                       # MongoDB connection
+│   │   ├── prisma.js                   # Prisma Client instance
 │   │   ├── cloudinary.js               # Cloudinary setup
-│   │   └── payfast.js                  # PayFast setup
+│   │   ├── payfast.js                  # PayFast setup
+│   │   └── mailer.js                   # Nodemailer SMTP transport
 │   │
 │   ├── controllers/                    # Route controllers (logic)
 │   │   ├── authController.js
@@ -504,15 +524,6 @@ ofeast/                                 # Project root
 │   │   ├── errorMiddleware.js          # Centralized error handling
 │   │   └── uploadMiddleware.js         # Multer file uploads
 │   │
-│   ├── models/                         # Mongoose schemas
-│   │   ├── User.js
-│   │   ├── Business.js
-│   │   ├── MenuItem.js
-│   │   ├── Order.js
-│   │   ├── Cart.js
-│   │   ├── Payment.js
-│   │   └── Driver.js
-│   │
 │   ├── routes/                         # API route definitions
 │   │   ├── authRoutes.js
 │   │   ├── userRoutes.js
@@ -527,7 +538,7 @@ ofeast/                                 # Project root
 │   │   ├── authService.js
 │   │   ├── orderService.js
 │   │   ├── paymentService.js
-│   │   └── notificationService.js
+│   │   └── emailService.js             # SMTP email sending logic
 │   │
 │   ├── utils/                          # Helper functions
 │   │   ├── generateToken.js
@@ -572,6 +583,8 @@ ofeast/                                 # Project root
 |---|---|---|
 | **Framework** | React + Vite | Node.js + Express |
 | **Language** | JavaScript (JSX) | JavaScript (Node) |
+| **ORM** | — | Prisma |
+| **Database** | — | PostgreSQL (Neon) |
 | **Package Manager** | npm / yarn | npm / yarn |
 | **Dev Server** | Vite (port 5173) | Nodemon (port 5000) |
 | **Deployment** | Vercel | Render / Railway |
@@ -592,9 +605,10 @@ and mirrors how the platform runs in production.
 
 - Node.js (v18 or higher)
 - npm or yarn
-- MongoDB (local or Atlas)
+- PostgreSQL database (local or Neon)
 - PayFast merchant account
 - Cloudinary account
+- SMTP email account (e.g. Gmail, Mailtrap, SendGrid)
 
 ### Installation
 
@@ -618,6 +632,21 @@ cd ../backend
 npm install
 ```
 
+#### 3. Set up the Database (Prisma)
+
+```bash
+cd backend
+
+# Generate the Prisma Client
+npx prisma generate
+
+# Run database migrations
+npx prisma migrate dev
+
+# (Optional) Open Prisma Studio to inspect the database
+npx prisma studio
+```
+
 ### Environment Variables
 
 Create a `.env` file in both `frontend/` and `backend/` directories.
@@ -627,19 +656,32 @@ Create a `.env` file in both `frontend/` and `backend/` directories.
 ```env
 PORT=5000
 NODE_ENV=development
-MONGO_URI=your_mongodb_connection_string
+
+# Database (Neon PostgreSQL)
+DATABASE_URL=postgresql://user:password@host/dbname?sslmode=require
+
+# Authentication
 JWT_SECRET=your_jwt_secret
 JWT_EXPIRES_IN=7d
 
+# PayFast
 PAYFAST_MERCHANT_ID=your_merchant_id
 PAYFAST_MERCHANT_KEY=your_merchant_key
 PAYFAST_PASSPHRASE=your_passphrase
 PAYFAST_RETURN_URL=http://localhost:5173/order-success
 PAYFAST_CANCEL_URL=http://localhost:5173/cart
 
+# Cloudinary
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
+
+# SMTP Email
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_USER=your_smtp_user
+SMTP_PASS=your_smtp_password
+SMTP_FROM="Ofeast <no-reply@ofeast.co.za>"
 ```
 
 **Frontend (`frontend/.env`)**
@@ -676,7 +718,7 @@ backend API at `http://localhost:5000`.
 - [x] Project planning and architecture design
 - [x] Multi-role system design (Customer, Business, Admin, Driver)
 - [x] Authentication and authorization strategy
-- [x] Database schema design
+- [x] Database schema design (Prisma + PostgreSQL)
 - [x] UI/UX wireframing
 
 ### 🚧 Phase 2 — Core Development
@@ -694,6 +736,7 @@ backend API at `http://localhost:5000`.
 - [ ] Ratings and reviews
 - [ ] Promotional codes and discounts
 - [ ] Push notifications
+- [ ] Transactional email flows (order confirmation, status updates)
 
 ### 🌍 Phase 4 — Expansion
 - [ ] Multi-language support
