@@ -770,9 +770,8 @@ For permissions or inquiries, please contact the project maintainer.
 **Project Maintainer**
 
 - 🌐 Live Demo: [ofeast.vercel.app](https://ofeast.vercel.app/)
-- 📧 Email: your-email@example.com
-- 💼 LinkedIn: [Your Name](https://linkedin.com/in/your-profile)
-- 🐙 GitHub: [@your-username](https://github.com/your-username)
+- 📧 Email: mrmathosi.ofentse@gmail.com
+- 💼 LinkedIn: [Ofentse Mathosi](www.linkedin.com/in/ofentse-mathosi-8b4321331)
 
 ---
 
