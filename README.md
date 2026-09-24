@@ -687,50 +687,6 @@ npx prisma migrate dev
 npx prisma studio
 ```
 
-### Environment Variables
-
-Create a `.env` file in both `frontend/` and `backend/` directories.
-
-**Backend (`backend/.env`)**
-
-```env
-PORT=5000
-NODE_ENV=development
-
-# Database (Neon PostgreSQL)
-DATABASE_URL=postgresql://user:password@host/dbname?sslmode=require
-
-# Authentication
-JWT_SECRET=your_jwt_secret
-JWT_EXPIRES_IN=7d
-
-# PayFast
-PAYFAST_MERCHANT_ID=your_merchant_id
-PAYFAST_MERCHANT_KEY=your_merchant_key
-PAYFAST_PASSPHRASE=your_passphrase
-PAYFAST_RETURN_URL=http://localhost:5173/order-success
-PAYFAST_CANCEL_URL=http://localhost:5173/cart
-
-# Cloudinary
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-
-# SMTP Email
-SMTP_HOST=smtp.example.com
-SMTP_PORT=587
-SMTP_USER=your_smtp_user
-SMTP_PASS=your_smtp_password
-SMTP_FROM="Ofeast <no-reply@ofeast.co.za>"
-```
-
-**Frontend (`frontend/.env`)**
-
-```env
-VITE_API_URL=http://localhost:5000/api
-VITE_PAYFAST_URL=https://sandbox.payfast.co.za/eng/process
-```
-
 ### Running the Application
 
 Open **two terminals** — one for each project.
