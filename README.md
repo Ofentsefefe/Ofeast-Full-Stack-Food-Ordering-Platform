@@ -187,7 +187,7 @@ incoming orders and updating order progress.
 
 ## 👨‍💼 Driver's page
 
-### Admin Dashboard
+### Driver's dashboard
 
 <p align="center">
   <img
