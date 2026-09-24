@@ -753,7 +753,7 @@ below if you'd like to collaborate or learn more about the project.
 
 # 📄 License
 
-**© 2025 Ofeast. All Rights Reserved.**
+**© 2026 Ofeast. All Rights Reserved.**
 
 This project is provided for **educational and documentation purposes only**.
 
