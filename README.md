@@ -38,6 +38,46 @@
 
 ---
 
+# 📑 Table of Contents
+
+- [📸 Application Preview](#-application-preview)
+  - [🏠 Customer Experience](#-customer-experience)
+    - [Home & Food Discovery](#home--food-discovery)
+    - [🍔 Food Menu](#-food-menu)
+    - [🛒 Shopping Cart](#-shopping-cart)
+    - [💳 Checkout & Payment](#-checkout--payment)
+    - [📦 Order Tracking](#-order-tracking)
+  - [🏪 Food Business Experience](#-food-business-experience)
+    - [Shop Dashboard](#shop-dashboard)
+  - [👨‍💼 Administration](#-administration)
+    - [Admin Dashboard](#admin-dashboard)
+  - [📱 Mobile Experience](#-mobile-experience)
+- [📖 Overview](#-overview)
+- [🎯 Problem Statement](#-problem-statement)
+- [💡 The Ofeast Solution](#-the-ofeast-solution)
+  - [Customer Ordering Journey](#customer-ordering-journey)
+- [✨ Features](#-features)
+- [🛠️ Technology Stack](#️-technology-stack)
+  - [Frontend](#frontend)
+  - [Backend](#backend)
+  - [Database & Storage](#database--storage)
+  - [DevOps & Tooling](#devops--tooling)
+- [🏗️ System Architecture](#️-system-architecture)
+  - [Data Flow](#data-flow)
+- [📁 Project Structure](#-project-structure)
+  - [Why Two Separate Projects?](#why-two-separate-projects)
+- [🚀 Getting Started](#-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Environment Variables](#environment-variables)
+  - [Running the Application](#running-the-application)
+- [🗺️ Roadmap](#️-roadmap)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+- [📬 Contact](#-contact)
+
+---
+
 # 📸 Application Preview
 
 Ofeast provides a modern digital ordering experience that connects
@@ -128,7 +168,7 @@ preparation and fulfillment process.
 
 ---
 
-# 🏪 Food Business Experience
+## 🏪 Food Business Experience
 
 ### Shop Dashboard
 
@@ -145,7 +185,7 @@ incoming orders and updating order progress.
 
 ---
 
-# 👨‍💼 Administration
+## 👨‍💼 Administration
 
 ### Admin Dashboard
 
@@ -162,7 +202,7 @@ management of users, businesses, drivers, orders, and applications.
 
 ---
 
-# 📱 Mobile Experience
+## 📱 Mobile Experience
 
 <p align="center">
   <img
@@ -646,6 +686,51 @@ npx prisma migrate dev
 # (Optional) Open Prisma Studio to inspect the database
 npx prisma studio
 ```
+
+### Environment Variables
+
+Create a `.env` file in both `frontend/` and `backend/` directories.
+
+**Backend (`backend/.env`)**
+
+```env
+PORT=5000
+NODE_ENV=development
+
+# Database (Neon PostgreSQL)
+DATABASE_URL=postgresql://user:password@host/dbname?sslmode=require
+
+# Authentication
+JWT_SECRET=your_jwt_secret
+JWT_EXPIRES_IN=7d
+
+# PayFast
+PAYFAST_MERCHANT_ID=your_merchant_id
+PAYFAST_MERCHANT_KEY=your_merchant_key
+PAYFAST_PASSPHRASE=your_passphrase
+PAYFAST_RETURN_URL=http://localhost:5173/order-success
+PAYFAST_CANCEL_URL=http://localhost:5173/cart
+
+# Cloudinary
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+
+# SMTP Email
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_USER=your_smtp_user
+SMTP_PASS=your_smtp_password
+SMTP_FROM="Ofeast <no-reply@ofeast.co.za>"
+```
+
+**Frontend (`frontend/.env`)**
+
+```env
+VITE_API_URL=http://localhost:5000/api
+VITE_PAYFAST_URL=https://sandbox.payfast.co.za/eng/process
+```
+
 ### Running the Application
 
 Open **two terminals** — one for each project.
