@@ -771,7 +771,6 @@ For permissions or inquiries, please contact the project maintainer.
 
 - 🌐 Live Demo: [ofeast.vercel.app](https://ofeast.vercel.app/)
 - 📧 Email: mrmathosi.ofentse@gmail.com
-- 💼 LinkedIn: [Ofentse Mathosi](www.linkedin.com/in/ofentse-mathosi-8b4321331)
 
 ---
 
