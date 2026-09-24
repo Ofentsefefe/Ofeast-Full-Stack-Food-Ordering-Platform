@@ -753,8 +753,15 @@ below if you'd like to collaborate or learn more about the project.
 
 # 📄 License
 
-This project is licensed under the **MIT License**. See the
-[LICENSE](LICENSE) file for details.
+**© 2025 Ofeast. All Rights Reserved.**
+
+This project is provided for **educational and documentation purposes only**.
+
+- ❌ **No commercial use** — This project may not be used, in whole or in part, for any commercial purpose.
+- ❌ **No modification** — The code, documentation, and assets may not be edited, modified, or adapted without explicit written permission from the author.
+- ❌ **No redistribution** — You may not copy, share, or redistribute this project or any of its contents without prior written authorization.
+
+For permissions or inquiries, please contact the project maintainer.
 
 ---
 
@@ -774,5 +781,5 @@ This project is licensed under the **MIT License**. See the
 </p>
 
 <p align="center">
-  Made with ❤️ in South Africa
+  Made with ❤️ by Ofentse Mathosi in South Africa
 </p>
