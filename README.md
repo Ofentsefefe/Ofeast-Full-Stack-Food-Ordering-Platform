@@ -1,7 +1,7 @@
 # 🍽️ Ofeast — Full-Stack Food Ordering & Delivery Platform
 
 <p align="center">
-  <img src="assets/logo/ofeast-logo.png" alt="Ofeast Logo" width="180">
+  <img src="assets/logo/logo.png" alt="Ofeast Logo" width="180">
 </p>
 
 <h3 align="center">
