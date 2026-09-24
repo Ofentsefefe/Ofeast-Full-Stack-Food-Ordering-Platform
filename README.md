@@ -185,20 +185,20 @@ incoming orders and updating order progress.
 
 ---
 
-## 👨‍💼 Administration
+## 👨‍💼 Driver's page
 
 ### Admin Dashboard
 
 <p align="center">
   <img
-    src="assets/screenshots/admin-dashboard.png"
-    alt="Ofeast Admin Dashboard"
+    src="assets/screenshots/driver-dash.PNG"
+    alt="Ofeast Drivers' Dashboard"
     width="850"
   >
 </p>
 
-The administrative system is designed to provide platform-level
-management of users, businesses, drivers, orders, and applications.
+The Drivers system is designed to provide platform-level
+management of orders requests and deliveries while tracking live location.
 
 ---
 
